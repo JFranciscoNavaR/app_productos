@@ -29,7 +29,7 @@ class ProductoFactory extends Factory
             'descripcion' => 'Productos de Prueba',  
             'precio' => $this->faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 100),
             'cantidad' => $this->faker->numberBetween($min = 0, $max = 1000),
-            'estatus' => $this->faker->randomElement([0, 1]),
+            'statu_id' => User::all()->random()->id,
             'user_id' => User::all()->random()->id,
         ];
     }

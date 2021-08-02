@@ -62,10 +62,15 @@
                                         <table class="min-w-full divide-y divide-gray-200">
                                             <thead class="bg-gray-50">
                                                 <tr>
-                                                    <th scope="col" class="w-1/4 px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                    Inventario
+                                                    <th scope="col" colspan="8" class="border-b w-1/4 px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    @foreach ($inventories as $inventory)
+                                                        @if ($loop->first)
+                                                            Nombre de Inventario: {{$inventory->nombre_inv}}
+                                                        @endif
+                                                    @endforeach
                                                     </th>
-
+                                                </tr>
+                                                <tr class="divide-x divide-gray-200">
                                                     <th scope="col" class="w-1/4 px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                     Producto
                                                     </th>
@@ -104,13 +109,7 @@
 
                                             <tbody class="bg-white divide-y divide-gray-200">
                                             @foreach ($inventories as $inventory)      
-                                                <tr>
-                                                    <td class="w-auto px-6 py-3 text-center whitespace-nowrap">
-                                                        <div class="text-sm text-gray-900">
-                                                            {{$inventory->nombre_inv}}
-                                                        </div>
-                                                    </td>
-
+                                                <tr class="divide-x divide-gray-200">
                                                     <td class="w-auto px-6 py-3 text-center whitespace-nowrap">
                                                         <div class="text-sm text-gray-900">
                                                             {{$inventory->nombre_prod}}
@@ -143,7 +142,11 @@
 
                                                     <td class="w-auto px-6 py-3 text-center whitespace-nowrap">
                                                         <div class="text-sm text-gray-900">
-                                                            {{$inventory->estatus}}
+                                                            @if ($inventory->statu_id == 1)
+                                                                No Disponible
+                                                            @else
+                                                                Disponible
+                                                            @endif
                                                         </div>
                                                     </td>
 

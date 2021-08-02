@@ -15,6 +15,7 @@ class ProductosTable extends Component
 
     protected $queryString = ['buscar' => ['except' => '']];
     public $buscar;
+    public Producto $prod;
     public $titulo;
     public $filtro = 'codigo';
     public $orden = 'ASC';
@@ -23,9 +24,10 @@ class ProductosTable extends Component
     {
         $this->titulo = "Productos";
         $buscarSQL = '%'.$this->buscar.'%';
-        $prods = Producto::orderby('codigo', $this->orden)->where($this->filtro,'like',$buscarSQL)->paginate(5);
-    
-
+        $prods = Producto::orderby('codigo', $this->orden)
+            ->where($this->filtro,'like',$buscarSQL)
+            ->paginate(5);
+        
         return view('livewire.productos-table', compact('prods'));
     }
 

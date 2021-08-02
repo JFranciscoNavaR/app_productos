@@ -20,16 +20,16 @@ class CreateInventoryProductoTable extends Migration
             $table->foreign('inventory_id')
                 ->references('id')
                 ->on('inventories')
-                ->onDelete('cascade')
+                ->onDelete('set null')
                 ->onUpdate('cascade');
 
             $table->unsignedBigInteger('producto_id');
             $table->foreign('producto_id')
                 ->references('id')
                 ->on('productos')
-                ->onDelete('cascade')
+                ->onDelete('set null')
                 ->onUpdate('cascade');
-
+                
             $table->timestamps();
         });
     }

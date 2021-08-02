@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="flex ml-48 mr-2">
-                            <a href="{{route('category.new')}}" class="text-white hover:text-black">
+                            <a href="{{route('statu.new')}}" class="text-white hover:text-black">
                                 <span class="hidden sm:block" >
                                     <button class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:text-gray-700 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 ">
                                         <svg class="-ml-1 mr-2 h-5 w-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="rgba(255, 255, 255, var(--tw-bg-opacity))" aria-hidden="true">
@@ -51,7 +51,7 @@
                     </div>                   
 
                     </div>
-                    @if($categories->count())
+                    @if($status->count())
                         <div class="flex flex-col">
                             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -60,43 +60,43 @@
                                             <thead class="bg-gray-50">
                                                 <tr class="divide-x divide-gray-200">
                                                     <th scope="col" class="w-1/4 px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                        Id
-                                                        </th>
-    
-                                                        <th scope="col" class="w-5/6 px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                        Nombre
-                                                        </th>
-                                        
-                                                        <th scope="col" class="w-1/12 px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                        Editar
-                                                        <span class="sr-only">Editar</span>
-                                                        </th>
-                            
-                                                        <th scope="col" class="w-1/12 px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                        Eliminar
-                                                        <span class="sr-only">Eliminar</span>
+                                                    Id
+                                                    </th>
+
+                                                    <th scope="col" class="w-5/6 px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    Nombre
+                                                    </th>
+                                    
+                                                    <th scope="col" class="w-1/12 px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    Editar
+                                                    <span class="sr-only">Editar</span>
+                                                    </th>
+                        
+                                                    <th scope="col" class="w-1/12 px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    Eliminar
+                                                    <span class="sr-only">Eliminar</span>
                                                     </th>
                                                 </tr>
                                             </thead>
 
                                             <tbody class="bg-white divide-y divide-gray-200">
-                                            @foreach ($categories as $category)
+                                            @foreach ($status as $statu)
                                                     <tr class="divide-x divide-gray-200">
                                                         <td class="w-1/4 px-6 py-3 text-center whitespace-nowrap">
                                                             <div class="text-sm text-gray-900">
-                                                                {{$category->id}}
+                                                                {{$statu->id}}
                                                             </div>
                                                         </td>
 
                                                         <td class="w-5/6 px-6 py-3 text-center whitespace-nowrap">
                                                             <div class="text-sm text-gray-900">
-                                                                {{$category->nombre}}
+                                                                {{$statu->nombre}}
                                                             </div>
                                                         </td>
 
-                                                        @if ($categories->count())
+                                                        @if ($status->count())
                                                         <td class="w-1/12 px-6 py-3 text-center whitespace-nowrap">
-                                                            <a href="{{route('category.edit', $category->id)}}" class="text-white hover:text-black">
+                                                            <a href="{{route('statu.edit', $statu->id)}}" class="text-white hover:text-black">
                                                                 <div class="hidden sm:block">
                                                                     <button type="button" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-white bg-yellow-500 hover:text-gray-700 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
                                                                     <!-- Heroicon name: solid/pencil -->
@@ -110,7 +110,7 @@
                                                         </td>
                                     
                                                         <td class="w-1/12 px-6 py-3 whitespace-nowrap">
-                                                            <a href="{{route('category.delete', $category->id)}}" class="text-white hover:text-black">
+                                                            <a href="{{route('statu.delete', $statu->id)}}" class="text-white hover:text-black">
                                                                 <div class="hidden sm:block" >
                                                                     <button type="button" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:text-gray-700 hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                                                                     <!-- Heroicon name: solid/pencil -->
@@ -132,7 +132,7 @@
     
                                         <!-- Paginación -->
                                         <div class="bg-white px-4 py-3 item-center justify-between border-t border-gray-200 sm:px-6">        
-                                            {{$categories->links()}}      
+                                            {{$status->links()}}      
                                         </div>
                                     </div>
                                 </div>

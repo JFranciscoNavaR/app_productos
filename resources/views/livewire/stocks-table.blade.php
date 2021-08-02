@@ -60,7 +60,7 @@
                                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                         <table class="min-w-full divide-y divide-gray-200">
                                             <thead class="bg-gray-50">
-                                                <tr>
+                                                <tr class="divide-x divide-gray-200">
                                                     <th scope="col" class="w-1/4 px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                     Nombre
                                                     </th>
@@ -92,7 +92,7 @@
 
                                             <tbody class="bg-white divide-y divide-gray-200">
                                             @foreach ($stocks as $stock)      
-                                                <tr>
+                                                <tr class="divide-x divide-gray-200">
                                                     <td class="w-auto px-6 py-3 text-center whitespace-nowrap">
                                                         <div class="text-sm text-gray-900">
                                                             {{$stock->nombre}}

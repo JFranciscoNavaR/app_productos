@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Inventory;
+use App\Models\Producto;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
@@ -32,10 +33,9 @@ class InventoriesProductosTable extends Component
         $inventories = DB::table('inventory_producto')
             ->join('inventories', 'inventory_producto.inventory_id', '=', 'inventories.id')
             ->join('productos', 'inventory_producto.producto_id', '=', 'productos.id')
-            ->select('inventory_producto.inventory_id', 'inventories.nombre AS nombre_inv', 'inventory_producto.producto_id', 'productos.nombre AS nombre_prod', 'productos.marca', 'productos.descripcion', 'productos.precio', 'productos.cantidad', 'productos.estatus')
+            ->select('inventory_producto.inventory_id', 'inventories.nombre AS nombre_inv', 'inventory_producto.producto_id', 'productos.nombre AS nombre_prod', 'productos.marca', 'productos.descripcion', 'productos.precio', 'productos.cantidad', 'productos.statu_id')
             ->where('inventory_producto.inventory_id', '=', $this->inventory->id)
             ->paginate(5);
-
         return view('livewire.inventories-productos-table', compact('inventories'));
     }
 }

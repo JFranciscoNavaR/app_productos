@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Producto;
+use App\Models\Statu;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,14 +14,16 @@ class ProductosEdit extends Component
     use AuthorizesRequests;
     public Producto $prod;
     public $titulo;
+    public $color;
 
     protected $rules = [
         'prod.codigo' => 'required|min:6|max:10', 
         'prod.nombre' => 'required|max:50',
         'prod.marca' => 'required|max:50',
         'prod.descripcion' => 'required|max:50',
-        'prod.cantidad' => 'required|numeric',
-        'prod.precio' => 'required|numeric',
+        'prod.cantidad' => 'required|numeric|min:0',
+        'prod.statu_id' => 'required|numeric',
+        'prod.precio' => 'required|numeric|min:0',
     ];
 
     public function mount($id = null, $ideliminar = null ){
@@ -40,7 +43,15 @@ class ProductosEdit extends Component
 
     public function render()
     {
-        return view('livewire.productos-edit');
+        if($this->prod->cantidad <= 0){
+            $this->prod->statu_id = 1;
+            $this->color = "red";
+        }else{
+            $this->prod->statu_id = 2;
+            $this->color = "green";
+        }
+        $status = Statu::all();
+        return view('livewire.productos-edit', compact(['status']));
     }
 
     public function guardar(){
@@ -48,7 +59,7 @@ class ProductosEdit extends Component
         if(is_null($this->prod->user_id)){
             $this->prod->user_id = Auth::user()->id;
         }
-        $this->authorize('update', $this->prod);
+        //$this->authorize('update', $this->prod);
 
         $this->prod->save();
 

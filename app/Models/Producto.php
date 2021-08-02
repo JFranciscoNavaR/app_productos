@@ -21,4 +21,8 @@ class Producto extends Model
     public function inventories(){
         return $this->belongsToMany('App\Models\Inventory');
     }
+
+    public function statu(){
+        return $this->belongsTo('App\Models\Statu');
+    }
 }

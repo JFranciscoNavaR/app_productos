@@ -28,6 +28,7 @@
                                 <option value="nombre">Nombre</option>
                                 <option value="marca">Marca</option>
                                 <option value="precio">Precio</option>
+                                <option value="cantidad">Cantidad</option>
                             </select>
                             <div class="absolute top-0 left-0 inline-flex items-center p-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -77,7 +78,7 @@
                                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                         <table class="min-w-full divide-y divide-gray-200">
                                             <thead class="bg-gray-50">
-                                                <tr>
+                                                <tr class="divide-x divide-gray-200">
                                                     <th scope="col" class="w-1/4 px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                     Código
                                                     </th>
@@ -121,8 +122,7 @@
 
                                             <tbody class="bg-white divide-y divide-gray-200">
                                             @foreach ($prods as $prod)
-                                                   
-                                                    <tr>
+                                                    <tr class="divide-x divide-gray-200">
                                                         <td class="w-auto px-6 py-3 text-center whitespace-nowrap">
                                                             <div class="text-sm text-gray-900">
                                                                 {{$prod->codigo}}
@@ -158,10 +158,10 @@
                                                                 {{$prod->cantidad}}
                                                             </div>
                                                         </td>
-
+                                                    
                                                         <td class="w-auto px-6 py-3 text-center whitespace-nowrap">
                                                             <div class="text-sm text-gray-900">
-                                                                {{$prod->estatus}}
+                                                                {{$prod->statu->nombre}}
                                                             </div>
                                                         </td>
 

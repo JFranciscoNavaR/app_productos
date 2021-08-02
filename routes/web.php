@@ -15,6 +15,8 @@ use App\Http\Livewire\Index;
 use App\Http\Livewire\InventoriesEdit;
 use App\Http\Livewire\InventoriesProductosTable;
 use App\Http\Livewire\InventoriesTable;
+use App\Http\Livewire\StatusEdit;
+use App\Http\Livewire\StatusTable;
 use App\Http\Livewire\StocksTable;
 use App\Http\Livewire\StocksEdit;
 use Illuminate\Support\Facades\Route;
@@ -146,6 +148,25 @@ Route::get('/Categoria/eliminar/{ideliminar}', CategoriesEdit::class)
 Route::get('/Categoria/new', CategoriesEdit::class)
     ->middleware('auth')
     ->name('category.new');
+
+/*Rutas de Estatus */
+Route::get('/Estatus', StatusTable::class)
+    ->middleware('auth')
+    ->name('status');
+
+Route::get('/Estatu/editar/{id}', StatusEdit::class)
+    ->middleware('auth')
+    ->where('id', '[0-9]+')
+    ->name('statu.edit');
+
+Route::get('/Estatu/eliminar/{ideliminar}', StatusEdit::class)
+    ->middleware('auth')
+    ->where('ideliminar', '[0-9]+')
+    ->name('statu.delete');
+
+Route::get('/Estatu/new', StatusEdit::class)
+    ->middleware('auth')
+    ->name('statu.new');
 
 /*Rutas de Inventarios con Productos */
 Route::get('/Inventario/{idver}/Productos/ver', InventoriesProductosTable::class)

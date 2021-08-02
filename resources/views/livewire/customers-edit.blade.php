@@ -35,7 +35,7 @@
           
                             <div>
                               <label class="text-gray-700 dark:text-gray-200" for="telefono">Teléfono del Cliente</label>
-                              <input id="telefono" type="text" name="telefono" wire:model='customer.telefono' class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" placeholder="Teléfono" value="{{old('telefono')}}">
+                              <input id="telefono" type="num" name="telefono" wire:model='customer.telefono' class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" placeholder="Teléfono" value="{{old('telefono')}}">
                               @error('customer.telefono')
                                     <div class="px-4 py-2 mt-1 leading-normal text-red-700 bg-red-100 rounded-lg" role="alert">
                                         <p>Error! {{$message}}</p>

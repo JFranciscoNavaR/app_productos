@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth:sanctum');
 //Productos
-Route::get('/listar_productos', [ProductosTable::class, 'listar_productos'])->middleware('auth:sanctum');
+Route::get('/listar_productos', [ProductosTable::class, 'listar_productos']);//->middleware('auth:sanctum');
 Route::post('/listar_productos_filtro', [ProductosTable::class, 'listar_productos_filtro'])->middleware('auth:sanctum');
 Route::post('/guardar_productos', [ProductosEdit::class, 'guardar_productos']);
 Route::put('/actualizar_productos', [ProductosEdit::class, 'actualizar_productos']);

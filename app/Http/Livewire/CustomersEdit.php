@@ -18,7 +18,7 @@ class CustomersEdit extends Component
     protected $rules = [ 
         'customer.nombre' => 'required|max:50',
         'customer.email' => 'required|max:50',
-        'customer.telefono' => 'required|max:50',
+        'customer.telefono' => 'required|numeric|max:10',
         'customer.pais' => 'required|max:50',
         'customer.municipio' => 'required|max:50',
         'customer.localidad' => 'required|max:50',

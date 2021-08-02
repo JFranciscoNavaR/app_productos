@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{route('stocks')}}" :active="request()->routeIs(['stocks', 'stock.edit', 'stock.new', 'inventories.show', 'inventory.edit', 'inventory.new'])">
+                    <x-jet-nav-link href="{{route('stocks')}}" :active="request()->routeIs(['stocks', 'stock.edit', 'stock.new', 'inventories.show', 'inventory.edit', 'inventory.new', 'productos.show'])">
                         {{ __('Almacenes') }}
                     </x-jet-nav-link>
                 </div>
@@ -44,6 +44,12 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{route('categories')}}" :active="request()->routeIs(['categories', 'category.edit', 'category.new'])">
                         {{ __('Categorias') }}
+                    </x-jet-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{route('status')}}" :active="request()->routeIs(['status', 'statu.edit', 'statu.delete', 'statu.new'])">
+                        {{ __('Estatus') }}
                     </x-jet-nav-link>
                 </div>
             </div>
@@ -195,7 +201,7 @@
         </div>
 
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('stocks')}}" :active="request()->routeIs(['stocks', 'stock.edit', 'stock.new', 'inventories.show', 'inventory.edit', 'inventory.new'])">
+            <x-jet-responsive-nav-link href="{{ route('stocks')}}" :active="request()->routeIs(['stocks', 'stock.edit', 'stock.new', 'inventories.show', 'inventory.edit', 'inventory.new', 'productos.show'])">
                 {{ __('Almacenes') }}
             </x-jet-responsive-nav-link>
         </div>
@@ -203,6 +209,12 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-jet-responsive-nav-link href="{{ route('categories')}}" :active="request()->routeIs(['categories', 'category.edit', 'category.new'])">
                 {{ __('Categorias') }}
+            </x-jet-responsive-nav-link>
+        </div>
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-jet-responsive-nav-link href="{{ route('status')}}" :active="request()->routeIs(['status', 'statu.edit', 'statu.delete', 'statu.new'])">
+                {{ __('Estatus') }}
             </x-jet-responsive-nav-link>
         </div>
 
